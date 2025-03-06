@@ -1,17 +1,17 @@
 {
     "title": "Name of the extension",
-    "name": "github-<owner>-<repo>",
-    "description": "A sample extension.",
+    "name": "github-MalyHovad-LipsumVPHCode",
+    "description": "I wanted to create a PH code extension that would do two things: create a lipsum plugin to write directly in the editor, and get me a bonus mark.",
     "version": "0.0.1",
     "license": "MIT",
-    "author": "your name (https://github.com/<your github id>)",
-    "homepage": "<project web page url or this github repo url if no website available>",
+    "author": "https://github.com/MalyHovad",
+    "homepage": "https://github.com/MalyHovad/LipsumVPHCode",
     "engines": {
         "brackets": ">=2.0.0"
     },
     "categories": "demo",
     "keywords": [
-        "phcode", "extension", "demo"
+        "phcode", "extension", "loremipsum"
     ],
     "files": [
         "main.js"
