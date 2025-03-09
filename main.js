@@ -8,7 +8,7 @@
 // Using the default template, my nonexistent JS skills and a will to prove something
 // I am aware how modular scripts work and how to use them; not in JS.
 
-//Last save as of: 10.03.2025/0:15
+//Last save as of: 10.03.2025/0:00
 
 //Beginning of code, and my shenanigans
 
@@ -19,15 +19,6 @@
 define(function (require, exports, module) {
     "use strict";
 
-    // Import dat z Package, rn jen kvůli verzi :3
-    
-    let JsonProVerzi = {};
-
-    fetch('package.json')
-        .then(response => response.json())
-        .then(data => {JsonProVerzi = data;})
-        .catch(error => console.error("Chyba při načítání JSON:", error));
-    
     //moduly z brackets
     const AppInit = brackets.getModule("utils/AppInit"),
         DefaultDialogs = brackets.getModule("widgets/DefaultDialogs"),
@@ -56,6 +47,6 @@ define(function (require, exports, module) {
     
     
     AppInit.appReady(function () {
-        console.log("Using LVPHCode by Jakub", myData.version);
+        console.log("Using LVPHCode by Jakub, Thanks!");
     });
 });
