@@ -1,10 +1,20 @@
 /*global define, brackets, $ */
 
-// See detailed docs in https://docs.phcode.dev/api/creating-extensions
+// L O R E M      L O R E M
+// I P S U M      I P S U M
+//   F O R          P R O
+// P H D E V      P H D E V
+// Author Jakub Dalecký, as an additional mark project, and a cure to occasional boredom
+// Using the default template, my nonexistent JS skills and a will to prove something
 
-// A good place to look for code examples for extensions: https://github.com/phcode-dev/phoenix/tree/main/src/extensions/default
+//Last save as of: 10.03.2025/0:00
 
-// A simple extension that adds an entry in "file menu> hello world"
+//Beginning of code, and my shenanigans
+
+// DOKUMENTACE https://docs.phcode.dev/api/creating-extensions
+// PŘÍKLADY https://github.com/phcode-dev/phoenix/tree/main/src/extensions/default
+
+
 define(function (require, exports, module) {
     "use strict";
 
@@ -13,17 +23,17 @@ define(function (require, exports, module) {
     let JsonProVerzi = {};
 
     fetch('package.json')
-      .then(response => response.json())
-      .then(data => {
-        JsonProVerzi = data;
-    });
-    //Věc samotná
+        .then(response => response.json())
+        .then(data => {JsonProVerzi = data;})
+        .catch(error => console.error("Chyba při načítání JSON:", error));
+    
+    //moduly z brackets
     const AppInit = brackets.getModule("utils/AppInit"),
         DefaultDialogs = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs = brackets.getModule("widgets/Dialogs"),
         CommandManager = brackets.getModule("command/CommandManager"),
         Menus = brackets.getModule("command/Menus");
-
+    
     // Function to run when the menu item is clicked
     function DoTheThing() {
         Dialogs.showModalDialog(
@@ -39,7 +49,7 @@ define(function (require, exports, module) {
     // Deklarace pro menu, samotná zkratka
     var menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
     menu.addMenuItem(MY_COMMAND_ID);
-    menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Alt-L");
+    menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Alt-M");
     
     
     AppInit.appReady(function () {
