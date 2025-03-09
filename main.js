@@ -6,8 +6,9 @@
 // P H D E V      P H D E V
 // Author Jakub Dalecký, as an additional mark project, and a cure to occasional boredom
 // Using the default template, my nonexistent JS skills and a will to prove something
+// I am aware how modular scripts work and how to use them; not in JS.
 
-//Last save as of: 10.03.2025/0:00
+//Last save as of: 10.03.2025/0:15
 
 //Beginning of code, and my shenanigans
 
@@ -32,10 +33,12 @@ define(function (require, exports, module) {
         DefaultDialogs = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs = brackets.getModule("widgets/Dialogs"),
         CommandManager = brackets.getModule("command/CommandManager"),
-        Menus = brackets.getModule("command/Menus");
-    
+        Menus = brackets.getModule("command/Menus"),
+        Editor = brackets.getModule("editor/Editor");
     // Function to run when the menu item is clicked
     function DoTheThing() {
+        let VyberTextu = Editor.getSelection();
+        cosole.warn(VyberTextu);
         Dialogs.showModalDialog(
             DefaultDialogs.DIALOG_ID_INFO,
             "LVPHC",
@@ -44,7 +47,7 @@ define(function (require, exports, module) {
     }
     
     var MY_COMMAND_ID = "LVPHC.Handle";
-    CommandManager.register("Insert Lorem Ipsum", MY_COMMAND_ID, DoTheThing);
+    CommandManager.register("Insert Lipsum", MY_COMMAND_ID, DoTheThing);
     
     // Deklarace pro menu, samotná zkratka
     var menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
