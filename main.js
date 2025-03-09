@@ -8,7 +8,16 @@
 define(function (require, exports, module) {
     "use strict";
 
-    // Brackets modules
+    // Import dat z Package, rn jen kvůli verzi :3
+    
+    let JsonProVerzi = {};
+
+    fetch('package.json')
+      .then(response => response.json())
+      .then(data => {
+        JsonProVerzi = data;
+    });
+    //Věc samotná
     const AppInit = brackets.getModule("utils/AppInit"),
         DefaultDialogs = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs = brackets.getModule("widgets/Dialogs"),
@@ -16,29 +25,24 @@ define(function (require, exports, module) {
         Menus = brackets.getModule("command/Menus");
 
     // Function to run when the menu item is clicked
-    function handleHelloWorld() {
+    function DoTheThing() {
         Dialogs.showModalDialog(
             DefaultDialogs.DIALOG_ID_INFO,
-            "hello",
-            "world"
+            "LVPHC",
+            "Inserted."
         );
     }
     
-      // First, register a command - a UI-less object associating an id to a handler
-    var MY_COMMAND_ID = "helloworld.sayhello";   // package-style naming to avoid collisions
-    CommandManager.register("Hello World", MY_COMMAND_ID, handleHelloWorld);
-
-    // Then create a menu item bound to the command
-    // The label of the menu item is the name we gave the command (see above)
+    var MY_COMMAND_ID = "LVPHC.Handle";
+    CommandManager.register("Insert Lorem Ipsum", MY_COMMAND_ID, DoTheThing);
+    
+    // Deklarace pro menu, samotná zkratka
     var menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
     menu.addMenuItem(MY_COMMAND_ID);
+    menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Alt-L");
     
-    // We could also add a key binding at the same time:
-    //menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Alt-W");
-    // (Note: "Ctrl" is automatically mapped to "Cmd" on Mac)
     
-    // Initialize extension once shell is finished initializing.
     AppInit.appReady(function () {
-        console.log("hello world");
+        console.log("Using LVPHCode by Jakub", myData.version);
     });
 });
