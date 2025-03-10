@@ -8,7 +8,7 @@
 // Using the default template, my nonexistent JS skills and a will to prove something
 // I am aware how modular scripts work and how to use them; not in JS.
 
-//Last save as of: 10.03.2025/0:00
+//Last save as of: 10.03.2025/1:10, jdu spát
 
 //Beginning of code, and my shenanigans
 
@@ -25,15 +25,22 @@ define(function (require, exports, module) {
         Dialogs = brackets.getModule("widgets/Dialogs"),
         CommandManager = brackets.getModule("command/CommandManager"),
         Menus = brackets.getModule("command/Menus"),
-        Editor = brackets.getModule("editor/Editor");
-    // Function to run when the menu item is clicked
-    function DoTheThing() {
-        let VyberTextu = Editor.getSelection();
-        cosole.warn(VyberTextu);
-        Dialogs.showModalDialog(
-            DefaultDialogs.DIALOG_ID_INFO,
-            "LVPHC",
-            "Inserted."
+        Editor = brackets.getModule("editor/EditorManager");
+    // Hlavní funkce co plní lipsum
+        function DoTheThing() {
+            if (!Editor.hasSelection()) {
+                Dialogs.showModalDialog(
+                    DefaultDialogs.Dialog_ID_INFO,
+                    "LVPHC",
+                    "No number was selected.");
+                    return false;
+            }
+            const VyberTextu = Editor.getSelection();
+            console.warn(VyberTextu);
+            Dialogs.showModalDialog(
+                DefaultDialogs.DIALOG_ID_INFO,
+                "LVPHC",
+                "Inserted."
         );
     }
     
