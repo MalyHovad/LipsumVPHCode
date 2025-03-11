@@ -28,14 +28,14 @@ define(function (require, exports, module) {
         Editor = brackets.getModule("editor/EditorManager");
     // Hlavní funkce co plní lipsum
         function DoTheThing() {
-            if (!Editor.hasSelection) {
+            /* if (!Editor.hasSelection) {
                 Dialogs.showModalDialog(
                     DefaultDialogs.Dialog_ID_INFO,
                     "LVPHC",
                     "No number was selected.");
                     return false;
-            }
-            const VyberTextu = Editor.getSelection;
+            }*/
+            const VyberTextu = Editor.prototype.getSelectedText();
             console.warn(VyberTextu);
             Dialogs.showModalDialog(
                 DefaultDialogs.DIALOG_ID_INFO,
