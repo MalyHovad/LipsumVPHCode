@@ -1,3 +1,4 @@
+/*ROZEPSANÉ ZMĚNY, 18.3.25 11:26*/
 /*global define, brackets, $ */
 
 // L O R E M      L O R E M
@@ -18,14 +19,24 @@
 
 define(function (require, exports, module) {
     "use strict";
-
+    
     //moduly z brackets
     const AppInit = brackets.getModule("utils/AppInit"),
+		Document = brackets.getModule("document/Document"),
         DefaultDialogs = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs = brackets.getModule("widgets/Dialogs"),
         CommandManager = brackets.getModule("command/CommandManager"),
         Menus = brackets.getModule("command/Menus"),
         Editor = brackets.getModule("editor/EditorManager");
+
+    function Info(Message) {
+        Dialogs.showModalDialog(
+            DefaultDialogs.DIALOG_ID_INFO,
+            "LVPHC plugin",
+            Message
+        );
+    };
+    
     // Hlavní funkce co plní lipsum
         function DoTheThing() {
             /* if (!Editor.hasSelection) {
@@ -37,12 +48,8 @@ define(function (require, exports, module) {
             }*/
             const VyberTextu = Editor.prototype.getSelectedText();
             console.warn(VyberTextu);
-            Dialogs.showModalDialog(
-                DefaultDialogs.DIALOG_ID_INFO,
-                "LVPHC",
-                "Inserted."
-        );
-    }
+            Info("Inserted.")
+	    }
     
     var MY_COMMAND_ID = "LVPHC.Handle";
     CommandManager.register("Insert Lipsum", MY_COMMAND_ID, DoTheThing);
