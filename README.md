@@ -1,4 +1,4 @@
-# Lorem ipsum extension for Phoenix Code.
+# Lorem ipsum extension for Phoenix Code
 How to use the plugin:
 
 1. Install the plugin (There are other guides for this)
