@@ -1,4 +1,3 @@
-/*ROZEPSANÉ ZMĚNY, 18.3.25 11:26*/
 /*global define, brackets, $ */
 
 // L O R E M      L O R E M
@@ -27,7 +26,7 @@ define(function (require, exports, module) {
         Dialogs = brackets.getModule("widgets/Dialogs"),
         CommandManager = brackets.getModule("command/CommandManager"),
         Menus = brackets.getModule("command/Menus"),
-        Editor = brackets.getModule("editor/EditorManager");
+        Editor = brackets.getModule("editor/EditorManager").Editor;
 
     function Info(Message) {
         Dialogs.showModalDialog(
